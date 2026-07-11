@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adlytics — Facebook Ads Creator & AI UGC Ads Specialist</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:#0a0a0f;
+    color:#f5f5f7;
+    overflow-x:hidden;
+  }
+
+  nav {
+    position:fixed; top:0; width:100%; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 6%;
+    background:rgba(10,10,15,0.7);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .logo-wrap { display:flex; align-items:center; gap:10px; }
+  .logo-wrap svg { width:38px; height:38px; }
+  .logo-text { font-size:1.3rem; font-weight:700; letter-spacing:0.5px; }
+  .logo-text .ad { color:#7c5cff; }
+  .logo-text .lytics { color:#f5f5f7; }
+
+  nav ul { display:flex; gap:32px; list-style:none; align-items:center; }
+  nav ul li a { color:#ccc; text-decoration:none; font-size:0.95rem; transition:.3s; }
+  nav ul li a:hover { color:#7c5cff; }
+  .nav-cta {
+    background:linear-gradient(90deg,#7c5cff,#a480ff);
+    color:#fff !important;
+    padding:9px 20px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:0.85rem !important;
+  }
+  .nav-cta:hover { opacity:0.9; }
+
+  .hero {
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center;
+    padding:120px 6% 60px;
+    background: radial-gradient(circle at 50% 20%, rgba(124,92,255,0.25), transparent 60%);
+  }
+  .badge {
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    padding:8px 18px;
+    border:1px solid rgba(124,92,255,0.4);
+    border-radius:50px;
+    background:rgba(124,92,255,0.08);
+    color:#b8a4ff;
+    font-size:0.85rem;
+    font-weight:600;
+    margin-bottom:24px;
+  }
+  .hero h1 {
+    font-size:clamp(2.2rem, 6vw, 4.2rem);
+    font-weight:800;
+    line-height:1.1;
+    max-width:900px;
+    background:linear-gradient(90deg,#fff,#b8a4ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero p {
+    margin-top:20px;
+    color:#a9a9b3;
+    font-size:1.1rem;
+    max-width:600px;
+  }
+  .hero .btns { margin-top:36px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+  .btn {
+    padding:14px 28px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    transition:.3s;
+    cursor:pointer;
+    border:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-primary { background:linear-gradient(90deg,#7c5cff,#a480ff); color:#fff; }
+  .btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(124,92,255,0.4); }
+  .btn-outline { border:1px solid rgba(255,255,255,0.25); color:#fff; }
+  .btn-outline:hover { background:rgba(255,255,255,0.08); }
+  .btn-telegram { background:linear-gradient(90deg,#2AABEE,#229ED9); color:#fff; }
+  .btn-telegram:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(42,171,238,0.4); }
+
+  .stats { display:flex; gap:50px; margin-top:60px; flex-wrap:wrap; justify-content:center; }
+  .stat h3 { font-size:2rem; color:#7c5cff; }
+  .stat p { color:#999; font-size:0.85rem; margin-top:4px; }
+
+  .section { padding:100px 6%; }
+  .section-title { text-align:center; margin-bottom:50px; }
+  .section-title h2 { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; }
+  .section-title p { color:#999; margin-top:12px; max-width:550px; margin-inline:auto; }
+
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+  .service-card {
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:32px;
+    transition:.3s;
+  }
+  .service-card:hover { transform:translateY(-6px); border-color:#7c5cff; box-shadow:0 15px 40px rgba(124,92,255,0.15); }
+  .service-icon { font-size:2rem; margin-bottom:16px; }
+  .service-card h3 { font-size:1.2rem; margin-bottom:10px; }
+  .service-card p { color:#999; font-size:0.9rem; line-height:1.5; }
+
+  .showcase-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+    align-items:start;
+  }
+  .showcase-item {
+    background:#141420;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+    padding:16px;
+  }
+  .showcase-item:hover { border-color:#7c5cff; box-shadow:0 15px 40px rgba(124,92,255,0.15); transform:translateY(-4px); }
+  .showcase-label {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+  }
+  .showcase-label span {
+    font-size:0.72rem;
+    color:#7c5cff;
+    font-weight:700;
+    letter-spacing:0.5px;
+    background:rgba(124,92,255,0.1);
+    padding:4px 10px;
+    border-radius:20px;
+  }
+  .showcase-label h4 { font-size:0.95rem; color:#e5e5e5; }
+  .video-wrap {
+    border-radius:14px;
+    overflow:hidden;
+    background:#0d0d14;
+  }
+
+  .cta {
+    text-align:center;
+    background:linear-gradient(135deg, rgba(124,92,255,0.15), rgba(124,92,255,0.02));
+    border-radius:28px;
+    padding:70px 6%;
+    margin:0 6% 100px;
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .cta h2 { font-size:clamp(1.8rem,4vw,2.4rem); margin-bottom:16px; }
+  .cta p { color:#aaa; margin-bottom:30px; }
+  .cta .btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+  footer {
+    text-align:center;
+    padding:40px 6%;
+    color:#777;
+    font-size:0.85rem;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+  footer .footer-logo { display:flex; justify-content:center; align-items:center; gap:8px; margin-bottom:12px; }
+  footer .footer-logo svg { width:26px; height:26px; }
+  footer span.brand { color:#7c5cff; font-weight:600; }
+
+  .float-telegram {
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:200;
+    background:linear-gradient(90deg,#2AABEE,#229ED9);
+    color:#fff;
+    padding:14px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.9rem;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    box-shadow:0 8px 24px rgba(42,171,238,0.4);
+    transition:.3s;
+  }
+  .float-telegram:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(42,171,238,0.55); }
+
+  @media (max-width:600px) {
+    nav ul li:not(.nav-cta-item) { display:none; }
+    .float-telegram span { display:none; }
+    .float-telegram { padding:14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo-wrap">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="aGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#9C8CFF"/>
+          <stop offset="100%" stop-color="#4B2FCC"/>
+        </linearGradient>
+        <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#7C5CFF"/>
+          <stop offset="100%" stop-color="#D4AF37"/>
+        </linearGradient>
+      </defs>
+      <path d="M60 190 L110 40 L135 40 L85 190 Z" fill="url(#aGrad)"/>
+      <path d="M130 40 L180 190 L155 190 L105 40 Z" fill="#1B1035"/>
+      <rect x="95" y="140" width="14" height="35" fill="url(#barGrad)" rx="2"/>
+      <rect x="115" y="120" width="14" height="55" fill="url(#barGrad)" rx="2"/>
+      <rect x="135" y="100" width="14" height="75" fill="url(#barGrad)" rx="2"/>
+      <path d="M75 175 Q140 165 175 110" stroke="#D4AF37" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M165 95 L182 105 L172 122 Z" fill="#D4AF37"/>
+    </svg>
+    <div class="logo-text"><span class="ad">Ad</span><span class="lytics">lytics</span></div>
+  </div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#showcase">Showcase</a></li>
+    <li class="nav-cta-item"><a href="https://t.me/Adlytics0" target="_blank" class="nav-cta">Telegram</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="badge">🎬 Facebook Ads Creator &nbsp;·&nbsp; 🤖 AI UGC Ads Specialist</div>
+  <h1>Premium AI UGC Video Ads That Actually Convert</h1>
+  <p>Adlytics builds scroll-stopping Facebook & Instagram video ads powered by AI — crafted for performance, styled for premium brands.</p>
+  <div class="btns">
+    <a href="#showcase" class="btn btn-primary">Explore My Work</a>
+    <a href="https://t.me/Adlytics0" target="_blank" class="btn btn-telegram">💬 Chat on Telegram</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><h3>150+</h3><p>Ads Created</p></div>
+    <div class="stat"><h3>3.2x</h3><p>Avg. ROAS Boost</p></div>
+    <div class="stat"><h3>40+</h3><p>Brands Served</p></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-title">
+    <h2>What We Do</h2>
+    <p>Full-funnel AI-powered video ad creation for Meta platforms.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📘</div>
+      <h3>Facebook Ads Creator</h3>
+      <p>High-converting UGC-style ads crafted with AI actors, tailored hooks, and native scroll-stopping edits for Facebook feed & reels.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📷</div>
+      <h3>Instagram Video Ads</h3>
+      <p>Trend-aligned Reels & Story ads that blend seamlessly into the feed while driving real performance metrics.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3>AI UGC Ads</h3>
+      <p>Realistic AI-generated presenters that deliver authentic, relatable pitches — no shoot, no hassle, fully scalable.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="showcase">
+  <div class="section-title">
+    <h2>My Work</h2>
+    <p>Real ad creatives, embedded live — no redirects, just results.</p>
+  </div>
+  <div class="showcase-grid">
+
+    <div class="showcase-item">
+      <div class="showcase-label">
+        <span>FASHION</span>
+        <h4>Fashion UGC Ad</h4>
+      </div>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1208999858?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Fashion UGC Ad"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-item">
+      <div class="showcase-label">
+        <span>GADGET</span>
+        <h4>Charger Ad</h4>
+      </div>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1209000028?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Charger Ad"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-item">
+      <div class="showcase-label">
+        <span>AI UGC</span>
+        <h4>Gadget UGC Ad</h4>
+      </div>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1208999896?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Gadget UGC Ad"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-item">
+      <div class="showcase-label">
+        <span>GADGET</span>
+        <h4>Gadget Ad</h4>
+      </div>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1208999985?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Gadget Ad"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta" id="contact">
+  <h2>Ready to Scale Your Ads?</h2>
+  <p>Let's build your next high-converting AI video ad campaign.</p>
+  <div class="btns">
+    <a href="https://t.me/Adlytics0" target="_blank" class="btn btn-telegram">💬 Get in Touch on Telegram</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 190 L110 40 L135 40 L85 190 Z" fill="#7C5CFF"/>
+      <path d="M130 40 L180 190 L155 190 L105 40 Z" fill="#1B1035"/>
+      <rect x="95" y="140" width="14" height="35" fill="#D4AF37" rx="2"/>
+      <rect x="115" y="120" width="14" height="55" fill="#D4AF37" rx="2"/>
+      <rect x="135" y="100" width="14" height="75" fill="#D4AF37" rx="2"/>
+    </svg>
+    <span class="brand">Adlytics</span>
+  </div>
+  © 2026 Adlytics. All rights reserved.
+</footer>
+
+<a href="https://t.me/Adlytics0" target="_blank" class="float-telegram">💬 <span>Chat on Telegram</span></a>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+</body>
+</html>
