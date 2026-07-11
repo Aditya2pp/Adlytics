@@ -1,9 +1,9 @@
-<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adlytics -- Facebook Ads Creator & AI UGC Ads Specialist</title>
+<title>Adlytics — Facebook Ads Creator & AI UGC Ads Specialist</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
@@ -17,13 +17,17 @@
   nav {
     position:fixed; top:0; width:100%; z-index:100;
     display:flex; justify-content:space-between; align-items:center;
-    padding:20px 6%;
+    padding:16px 6%;
     background:rgba(10,10,15,0.7);
     backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(255,255,255,0.08);
   }
-  .logo { font-size:1.4rem; font-weight:700; letter-spacing:1px; }
-  .logo span { color:#7c5cff; }
+  .logo-wrap { display:flex; align-items:center; gap:10px; }
+  .logo-wrap svg { width:38px; height:38px; }
+  .logo-text { font-size:1.3rem; font-weight:700; letter-spacing:0.5px; }
+  .logo-text .ad { color:#7c5cff; }
+  .logo-text .lytics { color:#f5f5f7; }
+
   nav ul { display:flex; gap:32px; list-style:none; align-items:center; }
   nav ul li a { color:#ccc; text-decoration:none; font-size:0.95rem; transition:.3s; }
   nav ul li a:hover { color:#7c5cff; }
@@ -118,7 +122,7 @@
 
   .showcase-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:24px;
     align-items:start;
   }
@@ -128,7 +132,7 @@
     border-radius:20px;
     overflow:hidden;
     transition:.3s;
-    padding:16px 16px 8px;
+    padding:16px;
   }
   .showcase-item:hover { border-color:#7c5cff; box-shadow:0 15px 40px rgba(124,92,255,0.15); transform:translateY(-4px); }
   .showcase-label {
@@ -147,13 +151,10 @@
     border-radius:20px;
   }
   .showcase-label h4 { font-size:0.95rem; color:#e5e5e5; }
-  .pin-wrap {
+  .video-wrap {
     border-radius:14px;
     overflow:hidden;
-    display:flex;
-    justify-content:center;
     background:#0d0d14;
-    min-height:340px;
   }
 
   .cta {
@@ -175,9 +176,10 @@
     font-size:0.85rem;
     border-top:1px solid rgba(255,255,255,0.06);
   }
-  footer span { color:#7c5cff; font-weight:600; }
+  footer .footer-logo { display:flex; justify-content:center; align-items:center; gap:8px; margin-bottom:12px; }
+  footer .footer-logo svg { width:26px; height:26px; }
+  footer span.brand { color:#7c5cff; font-weight:600; }
 
-  /* Floating Telegram button */
   .float-telegram {
     position:fixed;
     bottom:24px;
@@ -208,7 +210,28 @@
 <body>
 
 <nav>
-  <div class="logo">Ad<span>lytics</span></div>
+  <div class="logo-wrap">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="aGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#9C8CFF"/>
+          <stop offset="100%" stop-color="#4B2FCC"/>
+        </linearGradient>
+        <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+          <stop offset="0%" stop-color="#7C5CFF"/>
+          <stop offset="100%" stop-color="#D4AF37"/>
+        </linearGradient>
+      </defs>
+      <path d="M60 190 L110 40 L135 40 L85 190 Z" fill="url(#aGrad)"/>
+      <path d="M130 40 L180 190 L155 190 L105 40 Z" fill="#1B1035"/>
+      <rect x="95" y="140" width="14" height="35" fill="url(#barGrad)" rx="2"/>
+      <rect x="115" y="120" width="14" height="55" fill="url(#barGrad)" rx="2"/>
+      <rect x="135" y="100" width="14" height="75" fill="url(#barGrad)" rx="2"/>
+      <path d="M75 175 Q140 165 175 110" stroke="#D4AF37" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M165 95 L182 105 L172 122 Z" fill="#D4AF37"/>
+    </svg>
+    <div class="logo-text"><span class="ad">Ad</span><span class="lytics">lytics</span></div>
+  </div>
   <ul>
     <li><a href="#services">Services</a></li>
     <li><a href="#showcase">Showcase</a></li>
@@ -219,7 +242,7 @@
 <section class="hero">
   <div class="badge">🎬 Facebook Ads Creator &nbsp;·&nbsp; 🤖 AI UGC Ads Specialist</div>
   <h1>Premium AI UGC Video Ads That Actually Convert</h1>
-  <p>Adlytics builds scroll-stopping Facebook & Instagram video ads powered by AI -- crafted for performance, styled for premium brands.</p>
+  <p>Adlytics builds scroll-stopping Facebook & Instagram video ads powered by AI — crafted for performance, styled for premium brands.</p>
   <div class="btns">
     <a href="#showcase" class="btn btn-primary">Explore My Work</a>
     <a href="https://t.me/Adlytics0" target="_blank" class="btn btn-telegram">💬 Chat on Telegram</a>
@@ -250,7 +273,7 @@
     <div class="service-card">
       <div class="service-icon">🤖</div>
       <h3>AI UGC Ads</h3>
-      <p>Realistic AI-generated presenters that deliver authentic, relatable pitches -- no shoot, no hassle, fully scalable.</p>
+      <p>Realistic AI-generated presenters that deliver authentic, relatable pitches — no shoot, no hassle, fully scalable.</p>
     </div>
   </div>
 </section>
@@ -258,57 +281,55 @@
 <section class="section" id="showcase">
   <div class="section-title">
     <h2>My Work</h2>
-    <p>Real ad creatives, embedded live -- no redirects, just results.</p>
+    <p>Real ad creatives, embedded live — no redirects, just results.</p>
   </div>
   <div class="showcase-grid">
 
     <div class="showcase-item">
       <div class="showcase-label">
         <span>FASHION</span>
-        <h4>Fashion Brand Ad</h4>
+        <h4>Fashion UGC Ad</h4>
       </div>
-      <div class="pin-wrap">
-        <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/1127940669215132851" data-pin-width="large"></a>
-      </div>
-    </div>
-
-    <div class="showcase-item">
-      <div class="showcase-label">
-        <span>GADGET REVIEW</span>
-        <h4>Gadget Review Ad</h4>
-      </div>
-      <div class="pin-wrap">
-        <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/1127940669215132712" data-pin-width="large"></a>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1208999858?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Fashion UGC Ad"></iframe>
+        </div>
       </div>
     </div>
 
     <div class="showcase-item">
       <div class="showcase-label">
-        <span>GADGET REVIEW</span>
-        <h4>Gadget Review Ad</h4>
+        <span>GADGET</span>
+        <h4>Charger Ad</h4>
       </div>
-      <div class="pin-wrap">
-        <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/1127940669215132739" data-pin-width="large"></a>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1209000028?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Charger Ad"></iframe>
+        </div>
       </div>
     </div>
 
     <div class="showcase-item">
       <div class="showcase-label">
         <span>AI UGC</span>
-        <h4>AI UGC Ad</h4>
+        <h4>Gadget UGC Ad</h4>
       </div>
-      <div class="pin-wrap">
-        <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/1127940669215132756" data-pin-width="large"></a>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1208999896?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Gadget UGC Ad"></iframe>
+        </div>
       </div>
     </div>
 
     <div class="showcase-item">
       <div class="showcase-label">
-        <span>FASHION</span>
-        <h4>Fashion Brand Reel</h4>
+        <span>GADGET</span>
+        <h4>Gadget Ad</h4>
       </div>
-      <div class="pin-wrap">
-        <a data-pin-do="embedPin" href="https://www.pinterest.com/pin/1127940669215132771" data-pin-width="large"></a>
+      <div class="video-wrap">
+        <div style="padding:177.78% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1208999985?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Gadget Ad"></iframe>
+        </div>
       </div>
     </div>
 
@@ -324,12 +345,22 @@
 </div>
 
 <footer>
-  © 2026 <span>Adlytics</span>. All rights reserved.
+  <div class="footer-logo">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 190 L110 40 L135 40 L85 190 Z" fill="#7C5CFF"/>
+      <path d="M130 40 L180 190 L155 190 L105 40 Z" fill="#1B1035"/>
+      <rect x="95" y="140" width="14" height="35" fill="#D4AF37" rx="2"/>
+      <rect x="115" y="120" width="14" height="55" fill="#D4AF37" rx="2"/>
+      <rect x="135" y="100" width="14" height="75" fill="#D4AF37" rx="2"/>
+    </svg>
+    <span class="brand">Adlytics</span>
+  </div>
+  © 2026 Adlytics. All rights reserved.
 </footer>
 
 <a href="https://t.me/Adlytics0" target="_blank" class="float-telegram">💬 <span>Chat on Telegram</span></a>
 
-<script async defer type="text/javascript" src="https://assets.pinterest.com/js/pinit.js"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 </body>
 </html>
